@@ -1,10 +1,13 @@
 import {Request, Response} from 'express'
+import { productRepository } from '../data/product-repository'
 
-export class OrdersController {
+export class ProductsController {
 
   create() {
-    return (req: Request, res: Response, next: any) => {
-      res.sendStatus(200)
+    return async (req: Request, res: Response, next: any) => {
+      const data = req.body
+      const response = await productRepository.create(data)
+      res.send(response)
     }
   }
 
@@ -28,4 +31,4 @@ export class OrdersController {
 
 }
 
-export const ordersController = new OrdersController()
+export const productsController = new ProductsController()
