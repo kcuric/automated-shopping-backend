@@ -3,6 +3,10 @@ import { ordersController } from './controller/order-controller'
 
 const router = express.Router()
 
+router.get('/', 
+  ordersController.findOne(),
+)
+
 router.post('/', 
   ordersController.create(),
 )
@@ -13,10 +17,6 @@ router.put('/',
 
 router.delete('/', 
   ordersController.delete(),
-)
-
-router.put('/', 
-  ordersController.assign(),
 )
 
 export const ordersRouter = router

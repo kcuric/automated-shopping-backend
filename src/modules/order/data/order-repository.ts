@@ -35,8 +35,8 @@ export class OrderRepository {
     return orderModel.findById(id)
   }
 
-  findOne(filter: any){
-    return orderModel.findOne(filter)
+  async findOne(filter: any){
+    return await orderModel.findOne(filter).populate('productId')
   }
 
   findAll(filter: any){

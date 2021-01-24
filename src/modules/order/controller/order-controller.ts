@@ -25,9 +25,10 @@ export class OrdersController {
     }
   }
 
-  assign() {
-    return (req: Request, res: Response, next: any) => {
-      res.sendStatus(200)
+  findOne(){
+    return async (req: Request, res: Response, next: any) => {
+      const result = await orderRepository.findOne(req.query)
+      res.send(result)
     }
   }
 

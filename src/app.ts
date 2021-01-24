@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import { ordersRouter } from './modules/order/order-routes'
 import { productsRouter } from './modules/product/product-routes'
+import { queryParser } from './shared/middleware/query-parser'
 
 const config = dotenv.config()
 
@@ -25,6 +26,7 @@ mongoose.connect(
 
 const app: Application = express()
 
+app.use(queryParser)
 app.use(bodyParser.json())
 app.use('/orders', ordersRouter)
 app.use('/products', productsRouter)
