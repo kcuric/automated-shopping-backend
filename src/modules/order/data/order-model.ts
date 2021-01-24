@@ -19,9 +19,15 @@ export interface IOrder extends Document {
 const orderSchema: Schema = new Schema(
   {
     agentName: { type: String },
+    buyerName: { type: String },
+    buyerContact: { type: String },
+    buyerAdress: { type: String },
+    buyerCity: { type: String },
+    buyerState: {type: String},
+    buyerPostCode: {type: String},
+    currency: {type: String},
     price: {type: Number},
     shipping: {type: Number},
-    vat: {type: Number},
     total: {type: Number},
     storeItemUrl: {type: String},
     productId: { type: mongoose.Schema.Types.ObjectId, ref: 'products' },
